@@ -1,0 +1,1222 @@
+{
+	"info": {
+		"_postman_id": "1c1fc517-a031-4f91-b4a2-774ecf9eec7c",
+		"name": "equivalence classes and boundary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "age_europe_equivalence_0-17",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=1 && jsonData.age <=17) ;\r",
+							"        pm.expect(jsonData.age_type).to.eql(\"underage\");\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include(\"Tom & Jerry (Feb. 26)\", \"Raya and the Last Dragon (Mar. 5)\", \r",
+							"    \"Peter Rabbit 2: The Runaway (April 2)\", \r",
+							"    \"Rumble (May 14)\", \r",
+							"    \"Minions: The Rise of Gru (July 2)\", \r",
+							"    \"Space Jam 2: A New Legacy (July 16)\", \r",
+							"    \"The Addams Family 2 (Oct. 8)\", \r",
+							"    \"Encanto (Nov. 24)\");\r",
+							"});\r",
+							"// поверка schema \r",
+							"var jsonData=JSON.parse(responseBody)\r",
+							"var schema ={ \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"age\": \"16\",\r",
+							"            \"age_type\": \"underage\",\r",
+							"            \"content\": [\r",
+							"                \"Tom & Jerry (Feb. 26)\",\r",
+							"                \"Raya and the Last Dragon (Mar. 5)\",\r",
+							"                \"Peter Rabbit 2: The Runaway (April 2)\",\r",
+							"                \"Rumble (May 14)\",\r",
+							"                \"Minions: The Rise of Gru (July 2)\",\r",
+							"                \"Space Jam 2: A New Legacy (July 16)\",\r",
+							"                \"The Addams Family 2 (Oct. 8)\",\r",
+							"                \"Encanto (Nov. 24)\"\r",
+							"            ]\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"age\",\r",
+							"        \"age_type\",\r",
+							"        \"content\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"age\": {\r",
+							"            \"$id\": \"#/properties/age\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"16\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"age_type\": {\r",
+							"            \"$id\": \"#/properties/age_type\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age_type schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"underage\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"content\": {\r",
+							"            \"$id\": \"#/properties/content\",\r",
+							"            \"type\": \"array\",\r",
+							"            \"title\": \"The content schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": [],\r",
+							"            \"examples\": [\r",
+							"                [\r",
+							"                    \"Tom & Jerry (Feb. 26)\",\r",
+							"                    \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                ]\r",
+							"            ],\r",
+							"            \"additionalItems\": true,\r",
+							"            \"items\": {\r",
+							"                \"$id\": \"#/properties/content/items\",\r",
+							"                \"anyOf\": [\r",
+							"                    {\r",
+							"                        \"$id\": \"#/properties/content/items/anyOf/0\",\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The first anyOf schema\",\r",
+							"                        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                        \"default\": \"\",\r",
+							"                        \"examples\": [\r",
+							"                            \"Tom & Jerry (Feb. 26)\",\r",
+							"                            \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                        ]\r",
+							"                    }\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"};\r",
+							"tests[\"Valid schema\"] = tv4.validate(jsonData, schema);\r",
+							"//here the test is passing even with invalid jsonData which is the data                       \r",
+							" console.log(\"Validation failed: \", tv4.error);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_europe",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_europe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_europe_equivalence_50-100",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=50 && jsonData.age <=100) ;\r",
+							"        pm.expect(jsonData.age_type).to.eql(\"antiquity\");\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include( \"An American Pickle\",\r",
+							"        \"The Lovebirds\",\r",
+							"        \"Bill & Ted Face The Music\",\r",
+							"        \"The Personal History Of David Copperfield\",\r",
+							"        \"Emma\",\r",
+							"        \"Happiest Season\",\r",
+							"        \"Spontaneous\",\r",
+							"        \"Palm Springs\");\r",
+							"});\r",
+							"// поверка schema \r",
+							"var jsonData=JSON.parse(responseBody)\r",
+							"var schema ={ \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"age\": \"16\",\r",
+							"            \"age_type\": \"underage\",\r",
+							"            \"content\": [\r",
+							"                \"Tom & Jerry (Feb. 26)\",\r",
+							"                \"Raya and the Last Dragon (Mar. 5)\",\r",
+							"                \"Peter Rabbit 2: The Runaway (April 2)\",\r",
+							"                \"Rumble (May 14)\",\r",
+							"                \"Minions: The Rise of Gru (July 2)\",\r",
+							"                \"Space Jam 2: A New Legacy (July 16)\",\r",
+							"                \"The Addams Family 2 (Oct. 8)\",\r",
+							"                \"Encanto (Nov. 24)\"\r",
+							"            ]\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"age\",\r",
+							"        \"age_type\",\r",
+							"        \"content\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"age\": {\r",
+							"            \"$id\": \"#/properties/age\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"16\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"age_type\": {\r",
+							"            \"$id\": \"#/properties/age_type\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age_type schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"underage\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"content\": {\r",
+							"            \"$id\": \"#/properties/content\",\r",
+							"            \"type\": \"array\",\r",
+							"            \"title\": \"The content schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": [],\r",
+							"            \"examples\": [\r",
+							"                [\r",
+							"                    \"Tom & Jerry (Feb. 26)\",\r",
+							"                    \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                ]\r",
+							"            ],\r",
+							"            \"additionalItems\": true,\r",
+							"            \"items\": {\r",
+							"                \"$id\": \"#/properties/content/items\",\r",
+							"                \"anyOf\": [\r",
+							"                    {\r",
+							"                        \"$id\": \"#/properties/content/items/anyOf/0\",\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The first anyOf schema\",\r",
+							"                        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                        \"default\": \"\",\r",
+							"                        \"examples\": [\r",
+							"                            \"Tom & Jerry (Feb. 26)\",\r",
+							"                            \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                        ]\r",
+							"                    }\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"};\r",
+							"tests[\"Valid schema\"] = tv4.validate(jsonData, schema);\r",
+							"//here the test is passing even with invalid jsonData which is the data                       \r",
+							" console.log(\"Validation failed: \", tv4.error);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "80",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_europe?age={{age}}",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_europe"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "{{age}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_europe_equivalence_negativ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_europe?age={{age}}",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_europe"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "{{age}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_europe_equivalence_18-49",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=18 && jsonData.age <=49) ;\r",
+							"        pm.expect(jsonData.age_type).to.eql(\"adult\");\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include( \"Tom & Jerry (Feb. 26)\",\r",
+							"        \"Raya and the Last Dragon (Mar. 5)\",\r",
+							"        \"Peter Rabbit 2: The Runaway (April 2)\",\r",
+							"        \"Rumble (May 14)\",\r",
+							"        \"Minions: The Rise of Gru (July 2)\",\r",
+							"        \"Space Jam 2: A New Legacy (July 16)\",\r",
+							"        \"The Addams Family 2 (Oct. 8)\",\r",
+							"        \"Encanto (Nov. 24)\",\r",
+							"        \"The Matrix 4 (2021)\",\r",
+							"        \"Ghostbusters: Afterlife (2021)\",\r",
+							"        \"Chaos Walking (2021)\",\r",
+							"        \"Eternals (2021)\",\r",
+							"        \"Godzilla vs. Kong (2021)\",\r",
+							"        \"The Tomorrow War (2021)\",\r",
+							"        \"Venom: Let There Be Carnage (2021)\",\r",
+							"        \"Black Widow (2021)\",\r",
+							"        \"Dune (2021)\");\r",
+							"});\r",
+							"// поверка schema \r",
+							"var jsonData=JSON.parse(responseBody)\r",
+							"var schema ={ \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"age\": \"16\",\r",
+							"            \"age_type\": \"underage\",\r",
+							"            \"content\": [\r",
+							"                \"Tom & Jerry (Feb. 26)\",\r",
+							"                \"Raya and the Last Dragon (Mar. 5)\",\r",
+							"                \"Peter Rabbit 2: The Runaway (April 2)\",\r",
+							"                \"Rumble (May 14)\",\r",
+							"                \"Minions: The Rise of Gru (July 2)\",\r",
+							"                \"Space Jam 2: A New Legacy (July 16)\",\r",
+							"                \"The Addams Family 2 (Oct. 8)\",\r",
+							"                \"Encanto (Nov. 24)\"\r",
+							"            ]\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"age\",\r",
+							"        \"age_type\",\r",
+							"        \"content\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"age\": {\r",
+							"            \"$id\": \"#/properties/age\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"16\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"age_type\": {\r",
+							"            \"$id\": \"#/properties/age_type\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age_type schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"underage\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"content\": {\r",
+							"            \"$id\": \"#/properties/content\",\r",
+							"            \"type\": \"array\",\r",
+							"            \"title\": \"The content schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": [],\r",
+							"            \"examples\": [\r",
+							"                [\r",
+							"                    \"Tom & Jerry (Feb. 26)\",\r",
+							"                    \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                ]\r",
+							"            ],\r",
+							"            \"additionalItems\": true,\r",
+							"            \"items\": {\r",
+							"                \"$id\": \"#/properties/content/items\",\r",
+							"                \"anyOf\": [\r",
+							"                    {\r",
+							"                        \"$id\": \"#/properties/content/items/anyOf/0\",\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The first anyOf schema\",\r",
+							"                        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                        \"default\": \"\",\r",
+							"                        \"examples\": [\r",
+							"                            \"Tom & Jerry (Feb. 26)\",\r",
+							"                            \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                        ]\r",
+							"                    }\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"};\r",
+							"tests[\"Valid schema\"] = tv4.validate(jsonData, schema);\r",
+							"//here the test is passing even with invalid jsonData which is the data                       \r",
+							" console.log(\"Validation failed: \", tv4.error);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "26",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_europe",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_europe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_europe_Boundarie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_europe",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_europe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_usa_Boundarie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"});\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=1 && jsonData.age <=17) ;\r",
+							"        pm.expect(jsonData.age_type).to.be.oneOf([\"underage\",\"adalt\"]);\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include(\"Tom & Jerry (Feb. 26)\", \"Raya and the Last Dragon (Mar. 5)\", \r",
+							"    \"Peter Rabbit 2: The Runaway (April 2)\", \r",
+							"    \"Rumble (May 14)\", \r",
+							"    \"Minions: The Rise of Gru (July 2)\", \r",
+							"    \"Space Jam 2: A New Legacy (July 16)\", \r",
+							"    \"The Addams Family 2 (Oct. 8)\", \r",
+							"    \"Encanto (Nov. 24)\");\r",
+							"});\r",
+							"// поверка schema \r",
+							"var jsonData=JSON.parse(responseBody)\r",
+							"var schema ={ \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"age\": \"16\",\r",
+							"            \"age_type\": \"underage\",\r",
+							"            \"content\": [\r",
+							"                \"Tom & Jerry (Feb. 26)\",\r",
+							"                \"Raya and the Last Dragon (Mar. 5)\",\r",
+							"                \"Peter Rabbit 2: The Runaway (April 2)\",\r",
+							"                \"Rumble (May 14)\",\r",
+							"                \"Minions: The Rise of Gru (July 2)\",\r",
+							"                \"Space Jam 2: A New Legacy (July 16)\",\r",
+							"                \"The Addams Family 2 (Oct. 8)\",\r",
+							"                \"Encanto (Nov. 24)\"\r",
+							"            ]\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"age\",\r",
+							"        \"age_type\",\r",
+							"        \"content\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"age\": {\r",
+							"            \"$id\": \"#/properties/age\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"16\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"age_type\": {\r",
+							"            \"$id\": \"#/properties/age_type\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age_type schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"underage\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"content\": {\r",
+							"            \"$id\": \"#/properties/content\",\r",
+							"            \"type\": \"array\",\r",
+							"            \"title\": \"The content schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": [],\r",
+							"            \"examples\": [\r",
+							"                [\r",
+							"                    \"Tom & Jerry (Feb. 26)\",\r",
+							"                    \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                ]\r",
+							"            ],\r",
+							"            \"additionalItems\": true,\r",
+							"            \"items\": {\r",
+							"                \"$id\": \"#/properties/content/items\",\r",
+							"                \"anyOf\": [\r",
+							"                    {\r",
+							"                        \"$id\": \"#/properties/content/items/anyOf/0\",\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The first anyOf schema\",\r",
+							"                        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                        \"default\": \"\",\r",
+							"                        \"examples\": [\r",
+							"                            \"Tom & Jerry (Feb. 26)\",\r",
+							"                            \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                        ]\r",
+							"                    }\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"};\r",
+							"tests[\"Valid schema\"] = tv4.validate(jsonData, schema);\r",
+							"//here the test is passing even with invalid jsonData which is the data                       \r",
+							" console.log(\"Validation failed: \", tv4.error);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_europe",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_europe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_usa_Equivalence_negativ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=1 && jsonData.age <=17) ;\r",
+							"        pm.expect(jsonData.age_type).to.eql(\"underage\");\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include(\"Tom & Jerry (Feb. 26)\", \"Raya and the Last Dragon (Mar. 5)\", \r",
+							"    \"Peter Rabbit 2: The Runaway (April 2)\", \r",
+							"    \"Rumble (May 14)\", \r",
+							"    \"Minions: The Rise of Gru (July 2)\", \r",
+							"    \"Space Jam 2: A New Legacy (July 16)\", \r",
+							"    \"The Addams Family 2 (Oct. 8)\", \r",
+							"    \"Encanto (Nov. 24)\");\r",
+							"});\r",
+							"// поверка schema \r",
+							"var jsonData=JSON.parse(responseBody)\r",
+							"var schema ={ \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"age\": \"16\",\r",
+							"            \"age_type\": \"underage\",\r",
+							"            \"content\": [\r",
+							"                \"Tom & Jerry (Feb. 26)\",\r",
+							"                \"Raya and the Last Dragon (Mar. 5)\",\r",
+							"                \"Peter Rabbit 2: The Runaway (April 2)\",\r",
+							"                \"Rumble (May 14)\",\r",
+							"                \"Minions: The Rise of Gru (July 2)\",\r",
+							"                \"Space Jam 2: A New Legacy (July 16)\",\r",
+							"                \"The Addams Family 2 (Oct. 8)\",\r",
+							"                \"Encanto (Nov. 24)\"\r",
+							"            ]\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"age\",\r",
+							"        \"age_type\",\r",
+							"        \"content\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"age\": {\r",
+							"            \"$id\": \"#/properties/age\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"16\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"age_type\": {\r",
+							"            \"$id\": \"#/properties/age_type\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age_type schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"underage\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"content\": {\r",
+							"            \"$id\": \"#/properties/content\",\r",
+							"            \"type\": \"array\",\r",
+							"            \"title\": \"The content schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": [],\r",
+							"            \"examples\": [\r",
+							"                [\r",
+							"                    \"Tom & Jerry (Feb. 26)\",\r",
+							"                    \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                ]\r",
+							"            ],\r",
+							"            \"additionalItems\": true,\r",
+							"            \"items\": {\r",
+							"                \"$id\": \"#/properties/content/items\",\r",
+							"                \"anyOf\": [\r",
+							"                    {\r",
+							"                        \"$id\": \"#/properties/content/items/anyOf/0\",\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The first anyOf schema\",\r",
+							"                        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                        \"default\": \"\",\r",
+							"                        \"examples\": [\r",
+							"                            \"Tom & Jerry (Feb. 26)\",\r",
+							"                            \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                        ]\r",
+							"                    }\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"};\r",
+							"tests[\"Valid schema\"] = tv4.validate(jsonData, schema);\r",
+							"//here the test is passing even with invalid jsonData which is the data                       \r",
+							" console.log(\"Validation failed: \", tv4.error);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_usa",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_usa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_usa_Equivalence_0-20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=1 && jsonData.age <=17) ;\r",
+							"        pm.expect(jsonData.age_type).to.eql(\"underage\");\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include(\"Tom & Jerry (Feb. 26)\", \"Raya and the Last Dragon (Mar. 5)\", \r",
+							"    \"Peter Rabbit 2: The Runaway (April 2)\", \r",
+							"    \"Rumble (May 14)\", \r",
+							"    \"Minions: The Rise of Gru (July 2)\", \r",
+							"    \"Space Jam 2: A New Legacy (July 16)\", \r",
+							"    \"The Addams Family 2 (Oct. 8)\", \r",
+							"    \"Encanto (Nov. 24)\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "11",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_usa",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_usa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_usa_Equivalence_21-50",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=1 && jsonData.age <=17) ;\r",
+							"        pm.expect(jsonData.age_type).to.eql(\"adult\");\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include(\"Tom & Jerry (Feb. 26)\", \"Raya and the Last Dragon (Mar. 5)\", \r",
+							"    \"Peter Rabbit 2: The Runaway (April 2)\", \r",
+							"    \"Rumble (May 14)\", \r",
+							"    \"Minions: The Rise of Gru (July 2)\", \r",
+							"    \"Space Jam 2: A New Legacy (July 16)\", \r",
+							"    \"The Addams Family 2 (Oct. 8)\", \r",
+							"    \"Encanto (Nov. 24)\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "35",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_usa",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_usa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "age_usa_Equivalence_50-100",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// проверка на статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Тело соответствует строке\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"age_type\", \"content\");\r",
+							"});\r",
+							"\r",
+							"//провекра что значение age 0-17 попадает в категорию underage\r",
+							" pm.test(\"check_age\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      if (jsonData.age >=1 && jsonData.age <=17) ;\r",
+							"        pm.expect(jsonData.age_type).to.eql(\"antiquity\");\r",
+							"        \r",
+							" });\r",
+							"\r",
+							"//проверка что age и age_type строки.\r",
+							"\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"     pm.expect(jsonData.age).to.be.a(\"string\");\r",
+							"     pm.expect(jsonData.age_type).to.be.a(\"string\");\r",
+							"})\r",
+							";\r",
+							"// проверка содержания массива\r",
+							"pm.test(\"check_type of value\", function() {\r",
+							"       var jsonData = pm.response.json();\r",
+							"      pm.expect(jsonData.content).to.include(\"An American Pickle\",\r",
+							"        \"The Lovebirds\",\r",
+							"        \"Bill & Ted Face The Music\",\r",
+							"        \"The Personal History Of David Copperfield\",\r",
+							"        \"Emma\",\r",
+							"        \"Happiest Season\",\r",
+							"        \"Spontaneous\",\r",
+							"        \"Palm Springs\");\r",
+							"});\r",
+							"// поверка schema \r",
+							"var jsonData=JSON.parse(responseBody)\r",
+							"var schema ={ \"$schema\": \"http://json-schema.org/draft-07/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"title\": \"The root schema\",\r",
+							"    \"description\": \"The root schema comprises the entire JSON document.\",\r",
+							"    \"default\": {},\r",
+							"    \"examples\": [\r",
+							"        {\r",
+							"            \"age\": \"16\",\r",
+							"            \"age_type\": \"underage\",\r",
+							"            \"content\": [\r",
+							"                \"Tom & Jerry (Feb. 26)\",\r",
+							"                \"Raya and the Last Dragon (Mar. 5)\",\r",
+							"                \"Peter Rabbit 2: The Runaway (April 2)\",\r",
+							"                \"Rumble (May 14)\",\r",
+							"                \"Minions: The Rise of Gru (July 2)\",\r",
+							"                \"Space Jam 2: A New Legacy (July 16)\",\r",
+							"                \"The Addams Family 2 (Oct. 8)\",\r",
+							"                \"Encanto (Nov. 24)\"\r",
+							"            ]\r",
+							"        }\r",
+							"    ],\r",
+							"    \"required\": [\r",
+							"        \"age\",\r",
+							"        \"age_type\",\r",
+							"        \"content\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"age\": {\r",
+							"            \"$id\": \"#/properties/age\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"16\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"age_type\": {\r",
+							"            \"$id\": \"#/properties/age_type\",\r",
+							"            \"type\": \"string\",\r",
+							"            \"title\": \"The age_type schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": \"\",\r",
+							"            \"examples\": [\r",
+							"                \"underage\"\r",
+							"            ]\r",
+							"        },\r",
+							"        \"content\": {\r",
+							"            \"$id\": \"#/properties/content\",\r",
+							"            \"type\": \"array\",\r",
+							"            \"title\": \"The content schema\",\r",
+							"            \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"            \"default\": [],\r",
+							"            \"examples\": [\r",
+							"                [\r",
+							"                    \"Tom & Jerry (Feb. 26)\",\r",
+							"                    \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                ]\r",
+							"            ],\r",
+							"            \"additionalItems\": true,\r",
+							"            \"items\": {\r",
+							"                \"$id\": \"#/properties/content/items\",\r",
+							"                \"anyOf\": [\r",
+							"                    {\r",
+							"                        \"$id\": \"#/properties/content/items/anyOf/0\",\r",
+							"                        \"type\": \"string\",\r",
+							"                        \"title\": \"The first anyOf schema\",\r",
+							"                        \"description\": \"An explanation about the purpose of this instance.\",\r",
+							"                        \"default\": \"\",\r",
+							"                        \"examples\": [\r",
+							"                            \"Tom & Jerry (Feb. 26)\",\r",
+							"                            \"Raya and the Last Dragon (Mar. 5)\"\r",
+							"                        ]\r",
+							"                    }\r",
+							"                ]\r",
+							"            }\r",
+							"        }\r",
+							"    },\r",
+							"    \"additionalProperties\": true\r",
+							"};\r",
+							"tests[\"Valid schema\"] = tv4.validate(jsonData, schema);\r",
+							"//here the test is passing even with invalid jsonData which is the data                       \r",
+							" console.log(\"Validation failed: \", tv4.error);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "79",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url3}}/age_usa",
+					"host": [
+						"{{url3}}"
+					],
+					"path": [
+						"age_usa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

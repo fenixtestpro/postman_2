@@ -1,0 +1,472 @@
+{
+	"id": "3615f8b4-ab31-48b4-afc1-3e53647929c2",
+	"name": "equivalence classes and boundary",
+	"timestamp": "2021-06-20T16:49:58.740Z",
+	"collection_id": "1c1fc517-a031-4f91-b4a2-774ecf9eec7c",
+	"folder_id": 0,
+	"environment_id": "1b119b34-3545-46e6-bbf5-360580b50d46",
+	"totalPass": 38,
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "504f2a12-a872-4c03-90fe-7c27bd71b8b7",
+			"name": "age_europe_equivalence_0-17",
+			"url": "http://168.119.182.98:5002/age_europe",
+			"time": 230,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"check_age": true,
+				"check_type of value": true,
+				"Valid schema": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_type of value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valid schema": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				230
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"check_age": true,
+					"check_type of value": true,
+					"Valid schema": true
+				}
+			]
+		},
+		{
+			"id": "8610cd09-c678-4cbf-9085-c4ef6526e075",
+			"name": "age_europe_equivalence_50-100",
+			"url": "http://168.119.182.98:5002/age_europe?age=1",
+			"time": 220,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"check_age": true,
+				"check_type of value": true,
+				"Valid schema": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_type of value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valid schema": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				220
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"check_age": true,
+					"check_type of value": true,
+					"Valid schema": true
+				}
+			]
+		},
+		{
+			"id": "cd8c7f68-106b-47ce-b011-a4366f41c79e",
+			"name": "age_europe_equivalence_negativ",
+			"url": "http://168.119.182.98:5002/age_europe?age=1",
+			"time": 198,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				198
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "778ef9a3-9595-4ea0-948a-9d51432ce87f",
+			"name": "age_europe_equivalence_18-49",
+			"url": "http://168.119.182.98:5002/age_europe",
+			"time": 234,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"check_age": true,
+				"check_type of value": true,
+				"Valid schema": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_type of value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valid schema": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				234
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"check_age": true,
+					"check_type of value": true,
+					"Valid schema": true
+				}
+			]
+		},
+		{
+			"id": "dc7dca51-dfb4-4330-9362-587de6e077a8",
+			"name": "age_europe_Boundarie",
+			"url": "http://168.119.182.98:5002/age_europe",
+			"time": 220,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				220
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "fa7677b7-8f55-4a92-8b15-843d3750fbce",
+			"name": "age_usa_Boundarie",
+			"url": "http://168.119.182.98:5002/age_europe",
+			"time": 197,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				197
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "428b5880-4eef-4dec-9734-8566e792b171",
+			"name": "age_usa_Equivalence_negativ",
+			"url": "http://168.119.182.98:5002/age_usa",
+			"time": 233,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				233
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "5475fc42-bd32-40ba-8582-a3ac2e2205d4",
+			"name": "age_usa_Equivalence_0-20",
+			"url": "http://168.119.182.98:5002/age_usa",
+			"time": 206,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"check_age": true,
+				"check_type of value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_type of value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				206
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"check_age": true,
+					"check_type of value": true
+				}
+			]
+		},
+		{
+			"id": "7e650bd2-465b-4712-80e8-775bc3615ad7",
+			"name": "age_usa_Equivalence_21-50",
+			"url": "http://168.119.182.98:5002/age_usa",
+			"time": 218,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"check_age": true,
+				"check_type of value": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_type of value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				218
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"check_age": true,
+					"check_type of value": true
+				}
+			]
+		},
+		{
+			"id": "9bd2068b-a827-43f4-abcb-45e8c9858e90",
+			"name": "age_usa_Equivalence_50-100",
+			"url": "http://168.119.182.98:5002/age_usa",
+			"time": 229,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"check_age": true,
+				"check_type of value": true,
+				"Valid schema": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check_type of value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valid schema": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				229
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true,
+					"check_age": true,
+					"check_type of value": true,
+					"Valid schema": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2185,
+	"collection": {
+		"requests": [
+			{
+				"id": "504f2a12-a872-4c03-90fe-7c27bd71b8b7",
+				"method": "POST"
+			},
+			{
+				"id": "8610cd09-c678-4cbf-9085-c4ef6526e075",
+				"method": "POST"
+			},
+			{
+				"id": "cd8c7f68-106b-47ce-b011-a4366f41c79e",
+				"method": "POST"
+			},
+			{
+				"id": "778ef9a3-9595-4ea0-948a-9d51432ce87f",
+				"method": "POST"
+			},
+			{
+				"id": "dc7dca51-dfb4-4330-9362-587de6e077a8",
+				"method": "POST"
+			},
+			{
+				"id": "fa7677b7-8f55-4a92-8b15-843d3750fbce",
+				"method": "POST"
+			},
+			{
+				"id": "428b5880-4eef-4dec-9734-8566e792b171",
+				"method": "POST"
+			},
+			{
+				"id": "5475fc42-bd32-40ba-8582-a3ac2e2205d4",
+				"method": "POST"
+			},
+			{
+				"id": "7e650bd2-465b-4712-80e8-775bc3615ad7",
+				"method": "POST"
+			},
+			{
+				"id": "9bd2068b-a827-43f4-abcb-45e8c9858e90",
+				"method": "POST"
+			}
+		]
+	}
+}

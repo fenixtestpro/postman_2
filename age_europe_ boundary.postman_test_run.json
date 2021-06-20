@@ -1,0 +1,96 @@
+{
+	"id": "db9e5dda-83b2-4d64-8d52-26a88e124734",
+	"name": "equivalence classes and boundary",
+	"timestamp": "2021-06-11T12:24:28.462Z",
+	"collection_id": "1c1fc517-a031-4f91-b4a2-774ecf9eec7c",
+	"folder_id": 0,
+	"environment_id": "1b119b34-3545-46e6-bbf5-360580b50d46",
+	"totalPass": 10,
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "dc7dca51-dfb4-4330-9362-587de6e077a8",
+			"name": "age_europe_Boundarie",
+			"time": 299,
+			"responseCode": {
+				"code": 500,
+				"name": "INTERNAL SERVER ERROR"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 10,
+					"fail": 3
+				}
+			},
+			"times": [
+				207,
+				215,
+				196,
+				216,
+				194,
+				203,
+				193,
+				188,
+				322,
+				200,
+				199,
+				318,
+				299
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				}
+			]
+		}
+	],
+	"count": 13,
+	"totalTime": 2950,
+	"collection": {
+		"requests": [
+			{
+				"id": "dc7dca51-dfb4-4330-9362-587de6e077a8",
+				"method": "POST"
+			}
+		]
+	}
+}

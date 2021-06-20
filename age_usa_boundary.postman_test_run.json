@@ -1,0 +1,114 @@
+{
+	"id": "74f5bd1c-a1be-4d1e-a306-013348d9ca60",
+	"name": "equivalence classes and boundary",
+	"timestamp": "2021-06-11T12:49:02.035Z",
+	"collection_id": "1c1fc517-a031-4f91-b4a2-774ecf9eec7c",
+	"folder_id": 0,
+	"environment_id": "1b119b34-3545-46e6-bbf5-360580b50d46",
+	"totalPass": 24,
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "fa7677b7-8f55-4a92-8b15-843d3750fbce",
+			"name": "age_usa_Boundarie",
+			"time": 288,
+			"responseCode": {
+				"code": 500,
+				"name": "INTERNAL SERVER ERROR"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 11,
+					"fail": 2
+				},
+				"Body matches string": {
+					"pass": 13,
+					"fail": 0
+				}
+			},
+			"times": [
+				212,
+				210,
+				200,
+				211,
+				192,
+				201,
+				216,
+				208,
+				212,
+				210,
+				211,
+				303,
+				288
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": false,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": false,
+					"Body matches string": true
+				}
+			]
+		}
+	],
+	"count": 13,
+	"totalTime": 2874,
+	"collection": {
+		"requests": [
+			{
+				"id": "fa7677b7-8f55-4a92-8b15-843d3750fbce",
+				"method": "POST"
+			}
+		]
+	}
+}

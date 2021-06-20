@@ -1,0 +1,69 @@
+{
+	"id": "09af46ee-216b-4d06-a30e-e5e79ce4f500",
+	"name": "equivalence classes and boundary",
+	"timestamp": "2021-06-11T12:47:20.376Z",
+	"collection_id": "1c1fc517-a031-4f91-b4a2-774ecf9eec7c",
+	"folder_id": 0,
+	"environment_id": "1b119b34-3545-46e6-bbf5-360580b50d46",
+	"totalPass": 7,
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "428b5880-4eef-4dec-9734-8566e792b171",
+			"name": "age_usa_Equivalence_negativ",
+			"time": 303,
+			"responseCode": {
+				"code": 500,
+				"name": "INTERNAL SERVER ERROR"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 3,
+					"fail": 1
+				},
+				"Body matches string": {
+					"pass": 4,
+					"fail": 0
+				}
+			},
+			"times": [
+				221,
+				280,
+				295,
+				303
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				},
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		}
+	],
+	"count": 4,
+	"totalTime": 1099,
+	"collection": {
+		"requests": [
+			{
+				"id": "428b5880-4eef-4dec-9734-8566e792b171",
+				"method": "POST"
+			}
+		]
+	}
+}
